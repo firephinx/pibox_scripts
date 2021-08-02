@@ -1,5 +1,5 @@
 [Unit]
-Description=Start Realsense Camera
+Description=Start Thermal Camera
 After=NetworkManager.service time-sync.target
 
 [Service]
