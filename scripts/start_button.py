@@ -24,7 +24,7 @@ try:
             if not recording:
                 GPIO.output(11, GPIO.HIGH)
                 recording = True
-                recording_p = subprocess.Popen("/home/iam-lab/Document/pibox_scripts/systemd_scripts/record_rosbag.sh", stdout=subprocess.PIPE, shell=True)
+                recording_p = subprocess.Popen("/home/iam-lab/Documents/pibox_scripts/systemd_scripts/record_rosbag.sh", stdout=subprocess.PIPE, shell=True)
         else:
             if recording:
                 GPIO.output(11, GPIO.LOW)
