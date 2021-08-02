@@ -1,0 +1,11 @@
+[Unit]
+Description=Start Rosmaster
+After=NetworkManager.service time-sync.target
+
+[Service]
+Type=forking
+User=iam-lab
+ExecStart=/bin/sh -c ". /opt/ros/noetic/setup.sh; roscore & while ! echo exit | nc localhost 11311 > /dev/null; do sleep 1; done"
+
+[Install]
+WantedBy=multi-user.target
