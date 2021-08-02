@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sleep 45
+sleep 40
 source /home/iam-lab/.bashrc
 source /opt/ros/noetic/setup.bash
 source /home/iam-lab/catkin_ws/devel/setup.bash

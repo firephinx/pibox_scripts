@@ -24,7 +24,7 @@ try:
             if not recording:
                 GPIO.output(11, GPIO.HIGH)
                 recording = True
-                cmd = "rosbag record /"
+                cmd = "rosbag record /audio /audio_info /camera/color/image_raw /camera/depth/image_rect_raw /seekthermal/image "
                 recording_p = subprocess.Popen("exec " + cmd, stdout=subprocess.PIPE, shell=True)
         else:
             if recording:
