@@ -4,7 +4,6 @@ After=NetworkManager.service time-sync.target
 
 [Service]
 Type=simple
-User=iam-lab
 ExecStart=/home/iam-lab/Documents/pibox_scripts/systemd_scripts/start_button.sh
 Restart=on-abort
 
