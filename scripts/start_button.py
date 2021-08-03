@@ -4,6 +4,7 @@ try:
 
     import os
     import subprocess
+    import signal
 
     GPIO.setmode(GPIO.BOARD)
 
@@ -24,12 +25,13 @@ try:
             if not recording:
                 GPIO.output(11, GPIO.HIGH)
                 recording = True
-                recording_p = subprocess.Popen("/home/iam-lab/Documents/pibox_scripts/systemd_scripts/record_rosbag.sh", stdout=subprocess.PIPE, shell=True)
+                recording_p = subprocess.Popen("/home/iam-lab/Documents/pibox_scripts/systemd_scripts/record_rosbag.sh", stdout=subprocess.PIPE, shell=True, preexec_fn=os.setpgrp)
         else:
             if recording:
                 GPIO.output(11, GPIO.LOW)
                 recording = False
-                recording_p.terminate()
+                pgid = os.getpgid(recording_p.pid)
+                subprocess.check_output("sudo kill {}".format(pgid))
 
         time.sleep(1)
 except KeyboardInterrupt:
