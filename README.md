@@ -11,3 +11,8 @@ sudo cp *.service /etc/systemd/system/
 sudo chmod 644 /etc/systemd/system/*.service
 sudo systemctl enable 
 ```
+3. Copy the rc.local file to the /etc directory.
+```
+sudo cp rc.local /etc/
+sudo chmod +x /etc/rc.local
+```
